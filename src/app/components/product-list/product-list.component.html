@@ -41,7 +41,9 @@
                         <td>{{ producto.price }}</td>
                         <!-- botones:  -->
                         <td><button class="btn btn-warning">Editar</button> </td>
-                        <td><button class="btn btn-danger">Eliminar</button>
+                      <!--Ponemos un evento  (click) que es cuando el usuario da click en un botón
+                      e invocamos el método que nos permite eliminar un producto: -->  
+                        <td><button class="btn btn-danger" (click)="deleteProductById(producto.id)" >Eliminar</button>
                     </tr>
                 </tbody>
             </table>        

@@ -16,6 +16,7 @@ mis rutas, en este caso, el nombre de mi constante para que la pueda leer el sis
 y la pueda utilizar:
 */
 import { Routes, RouterModule} from '@angular/router';
+import { ProductAddComponent } from './components/product-add/product-add.component';
 
 //Creamos una constante para almacenar las rutas de nuestro proyecto:
 const routes: Routes =[
@@ -30,7 +31,8 @@ const routes: Routes =[
     AppComponent,
     HomeComponent,
     ProductListComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule, 
