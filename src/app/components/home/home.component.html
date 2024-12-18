@@ -1,0 +1,84 @@
+<!-- Navigation: navbar
+En Bootstrap, el navbar (barra de navegación) es un componente de interfaz que 
+generalmente se coloca en la parte superior de un sitio web y sirve para: 
+1.Navegación principal
+Contiene enlaces a diferentes secciones del sitio
+Permite moverse entre páginas principales
+Responsive (se adapta a diferentes tamaños de pantalla)
+
+2.Estructura típica:
+Logo o marca
+Menú de navegación
+Posibles elementos adicionales como botones de búsqueda o usuario.
+
+En este caso es la parte superiror de la página que observamos en la GUI, donde aparece el buscar(search)
+-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Spring eCommerce</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content: contenido de la página -->
+<div class="container">
+  <header class="jumbotron my-4">
+    <h1 class="display-3">Bienvenido a Spring Ecommerce 2023</h1>
+    <p class="lead">Tu tienda de productos en Línea</p>
+  </header>
+  
+  <div class="main-content">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid">
+  <!-- row: indica que van a ser las filas de la tabla -->        
+        <div class="row">
+  <!-- *ngFor: Esta instrucción le dice a angular que va a recorrer una lista,
+       en este caso es "products: Product [] = [];" que tenemos en el
+       archivo .ts de este componente. Los datos que se ponen en la caberecera de este
+       .html los debemos de poner en el mismo orden en el for:  -->         
+          <div *ngFor = "let p of products" class="col-md-3">
+<!-- La siguiente linea apunta al archivo style.css que almacenan los estilos 
+     que se le aplican a la aplicación de forma global: -->
+            <div class="product-box">
+              <img src="{{p.urlImage}}">
+              <h2 class="card-text">{{ p.name }}</h2>
+<!-- La siguiente linea apunta al archivo style.css que almacenan los estilos 
+     que se le aplican a la aplicación de forma global: -->
+              <div class="price">{{ p.price }}</div>
+              <div class="product-show">
+                <a href="#" class="primary-btn">Ver producto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer: Pie de página -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Spring eCommerce 2023</p>
+  </div>
+  <!-- /.container -->
+</footer>

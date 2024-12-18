@@ -1,0 +1,48 @@
+<!-- Llamamos al selector del componente header-admin, especificamnete
+     el que se encuentra en el archivo .ts de ese componente: -->
+<app-header-admin></app-header-admin>
+<!-- cuerpo(Page Content List Products): donde me va a permitir mostrar los productos-->
+        <div class="container">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="mt-4 mb-3">
+                Spring eCommerce <small>Productos</small>
+            </h1>
+        
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+                <li class="breadcrumb-item active">Ver Productos</li>
+            </ol>
+         <!-- boton para crear un producto:  -->
+            <a class="btn btn-primary"> Crear Producto</a>
+            <h2>Productos</h2>
+    <!-- tabla en donde se  muestras todos los productos: -->        
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+       <!-- *ngFor: Esta instrucción le dice a angular que va a recorrer una lista,
+       en este caso es "products: Product [] = [];" que tenemos en el
+       archivo .ts de este componente(product-list). Los datos que se ponen en la caberecera de este
+       .html los debemos de poner en el mismo orden en el for, con "let" declaramos la variable 
+       "producto"(hereda todos los atributos de la clase product que tenemos 
+       en el directorio common ) para almacenar los productos de la lista:  -->  
+                <tbody *ngFor = "let producto of products">
+                    <tr>
+                        <td>{{ producto.code }}</td>
+                        <td>{{ producto.name }}</td>
+                        <td>{{ producto.description }}</td>
+                        <td>{{ producto.price }}</td>
+                        <!-- botones:  -->
+                        <td><button class="btn btn-warning">Editar</button> </td>
+                        <td><button class="btn btn-danger">Eliminar</button>
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
