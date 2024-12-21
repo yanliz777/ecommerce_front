@@ -13,13 +13,13 @@ export class ProductAddComponent implements OnInit {
     archivo .ts para que puedan pasarse los datos desde la vista al archivo .ts y luego a la BD:
   */
   id : number = 0;
-  code : String = " ";
-  name : String = " ";
-  description: String = " ";
+  code : string = '';
+  name : string = " ";
+  description: string = " ";
   price: number = 0;
-  urlImage: String = " ";
-  userId : String = "1";
-  categoryId : String = "2";
+  urlImage: string = " ";
+  userId : string = "1";
+  categoryId : string = "2";
 
   //constructor:
   constructor(private productService: ProductService){
@@ -31,5 +31,29 @@ export class ProductAddComponent implements OnInit {
     
   }
 
+  //Método que tiene la lógica de como se empaqueta un producto y se envia al backend:
+  addProduct(){
+    /*
+    Esta constante "formData" almacena una clave:valor de
+    todos los atributos que se encuentren en el formulario:
+    */
+    const formData = new FormData();
+    /*
+    Añadimos los atributos que tenemos en la parte superiror de este archivo .ts del 
+    componente product-add. La clave debe de coincidir con el objeto que tenemos en el backend.
+    append(): tiene dos parámetros. El primer parámetro es el valor que lleva hacia el backend
+    y el segundo parámetro es el valor que le damos en este instante:
+    */
+    formData.append('id', this.id.toString());
+    formData.append('code', this.code);
+    formData.append('name',this.name);
+    formData.append('description',this.description);
+    formData.append('price', this.price.toString());
+    formData.append('urlImage', this.urlImage);
+    formData.append('userId', this.userId);
+    formData.append('categoryId', this.categoryId);
+//Para ver los que nos muestra la constante fomrData:
+    console.log(formData);
+  }
 
 }

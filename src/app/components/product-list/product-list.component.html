@@ -12,8 +12,10 @@
                 <li class="breadcrumb-item"><a routerLink="">Home</a></li>
                 <li class="breadcrumb-item active">Ver Productos</li>
             </ol>
-         <!-- boton para crear un producto:  -->
-            <a class="btn btn-primary"> Crear Producto</a>
+         <!-- boton para crear un producto, acá ponemos la ruta("routerLink") 
+          que se encuentra en el archivo "app.module" que nos envia
+          al formulario del componente product-add:  -->
+            <a class="btn btn-primary" routerLink="/admin/product/addProduct"> Crear Producto</a>
             <h2>Productos</h2>
     <!-- tabla en donde se  muestras todos los productos: -->        
             <table class="table">

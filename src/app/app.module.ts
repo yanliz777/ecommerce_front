@@ -1,8 +1,13 @@
+
+/*
+Este archivo guarda las rutas de mi proyecto: const routes: Routes =[ ];
+*/
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
 /*
 Importamos este paquete aquí(HttpClientModule) ya que utilizamos una clase que 
 pertenece a este paquete en los servicios:
@@ -22,7 +27,8 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
 const routes: Routes =[
   //Para declarar nuestras rutas debemos de poner algunos atributos:
   {path:'',component:HomeComponent},
-  {path:'admin/product',component:ProductListComponent}
+  {path:'admin/product', component: ProductListComponent},
+  {path:'admin/product/addProduct', component: ProductAddComponent}
 ];
 
 
@@ -37,6 +43,8 @@ const routes: Routes =[
   imports: [
     BrowserModule, 
     HttpClientModule,
+    FormsModule,// Agrega FormsModule aquí
+    
 //Agregamos la clase RouterModule para pasar el nombre de mi constante:
     RouterModule.forRoot(routes),
   ],

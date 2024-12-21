@@ -1,1 +1,76 @@
-<p>product-add works!</p>
+
+<!-- Añadimos la cabecera del administrador
+ del componente header-admin, especisficamente del selector que está en su 
+ archivo .ts: -->
+ <app-header-admin></app-header-admin>
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+      eCommerce <small>Productos</small>
+    </h1>
+  
+    <ol class="breadcrumb">
+    <!--En "routerLink " ponemos comillas vacias para cuando el usuario de un click en
+    donde dice home lo redireccione al home:   -->  
+      <li class="breadcrumb-item"><a routerLink = "">Home</a></li>
+      <li class="breadcrumb-item active">Crear Productos</li>
+    </ol>
+  
+    <h2>Crear Producto</h2>
+   <!--Formulario para la creación de un producto:  
+   (ngSubmit) se utiliza para capturar el envío de un formulario 
+   cuando se presiona el botón de submit. Con esto le indicamos a donde debe 
+   mapaerse "addProduct()" cuando el usuario haga click en el botón guardar:
+   --> 
+    <form class="form-horizontal" (ngSubmit)="addProduct()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+        <div class="col-sm-10">
+<!-- campo del name:
+[(ngModel)]: Permite hacer un  binding (o enlace) en ambas direcciones entre la 
+plantilla .html y el archivo .ts. Es decir, es una forma de sincronizar datos entre
+el componente y la plantilla HTML de la aplicación. Permite que los valores de las 
+propiedades del componente se reflejen automáticamente en la vista y que los cambios 
+en la interfaz de usuario se transmitan al componente: -->          
+          <input [(ngModel)] = "name"  type="text" class="form-control" id="nombre" name="nombre"
+          placeholder="Ingrese el nombre del producto" autocomplete="off" required>
+        </div>
+      </div>
+<!--campo del description: -->       
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="descripcion">Descripción:</label>
+        <div class="col-sm-10">
+          <textarea [(ngModel)] = "description"   class="form-control" id="descripcion" name="descripcion"
+          placeholder="Ingrese la descripcion del producto" required
+          autocomplete="off"> </textarea>
+        </div>
+      </div>
+ <!--campo del precio: --> 
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="precio">Precio:</label>
+        <div class="col-sm-10">
+          <input [(ngModel)] = "price"  type="number" class="form-control" step="any" id="precio" name="precio"
+          placeholder="Ingrese el precio del producto" autocomplete="off" required>
+        </div>
+      </div>
+<!--campo de la imagen: --> 
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="img">Imagen:</label>
+        <div class="col-sm-10">
+          <input type="file" class="form-control-file" id="img" name="img">
+        </div>
+      </div>
+<!--Botón para guardar: -->  
+      <div class="row">
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-success">
+            <span class="glyphicon glyphicon-saved"></span> Guardar
+          </button>
+        </div>
+      </div>
+  
+    </form>
+  
+  </div>
